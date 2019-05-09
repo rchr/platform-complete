@@ -1,8 +1,10 @@
-const platformCore = require('@folio/platform-core/stripes.config.js');
-const platformERM = require('@folio/platform-erm/stripes.config.js');
-const { merge } = require('lodash');
-
-const platformComplete = {
+module.exports = {
+  okapi: { 'url':'http://localhost:9130', 'tenant':'diku' },
+  config: {
+    logCategories: 'core,path,action,xhr',
+    logPrefix: '--',
+    showPerms: false
+  },
   modules: {
     '@folio/agreements': {},
     '@folio/calendar' : {},
@@ -20,6 +22,7 @@ const platformComplete = {
     '@folio/notes' : {},
     '@folio/orders': {},
     '@folio/organization' : {},
+    '@folio/organizations' : {},
     '@folio/plugin-create-item' : {},
     '@folio/plugin-find-agreement': {},
     '@folio/plugin-find-instance' : {},
@@ -27,7 +30,7 @@ const platformComplete = {
     '@folio/plugin-find-license': {},
     '@folio/plugin-find-organization' : {},
     '@folio/plugin-find-user' : {},
-    '@folio/plugin-find-vendor': {},
+    //'@folio/plugin-find-vendor': {},
     '@folio/requests' : {},
     '@folio/search' : {},
     '@folio/servicepoints' : {},
@@ -46,7 +49,5 @@ const platformComplete = {
     favicon: {
       src: './tenant-assets/folio-favicon.png',
     },
-  }
+  },
 };
-
-module.exports = merge({}, platformCore, platformERM, platformComplete);
